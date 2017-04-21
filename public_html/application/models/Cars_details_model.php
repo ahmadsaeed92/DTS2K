@@ -6,7 +6,7 @@ class Cars_details_model extends CI_Model {
         parent::__construct();
     }
 
-    public function generate_report($start, $end) {
+    public function generate_report($start, $end, $mode = "query", $limit = NULL, $offset = NULL) {
         $sql = "select v.id, v.begin_time, v.duration_dsec / 10 as total_time, v.laneStamp, 
                 ifnull((select e.duration_dsec/10 from event_tbl e join eventType_tbl et on et.id = e.eventType_id where et.description = 'Greet'
                 and e.visit_id = v.id),0) as greet_time,
@@ -44,12 +44,18 @@ class Cars_details_model extends CI_Model {
                 and e.visit_id = v.id ) as Integer),
                 0)
                 END as queue2
-                from visit_tbl v WHERE v.begin_time >= ? and v.begin_time <= ? order by v.begin_time desc";
+                from visit_tbl v WHERE v.begin_time >= ? and v.begin_time <= ? order by v.begin_time desc ";
+        if($mode != "count")
+            $sql .= " limit {$limit} offset {$offset}";
         $query = $this->db->query($sql,array($start,$end));
         if(!$query)
             return FALSE;
-        else
-            return $query->result_array();
+        else{
+            if($mode != "count")
+                return $query->result_array();
+            else
+                return count($query->result_array());
+        }
         
     }
 

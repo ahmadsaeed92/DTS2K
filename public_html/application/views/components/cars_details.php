@@ -24,11 +24,11 @@
                     <form method="post" action="<?php echo base_url() . "index.php/cars_details/generate_report/" ?>">
                         <div class="start-time">
                             <label>Start Time:</label>
-                            <input  type="text" <?php echo (isset($start_date) ? 'value = "'.$start_date.'"' : ''); ?> id="start_date_cars_details" name="start_date" class="datepicker">
+                            <input  type="text" required <?php echo (isset($start_date) ? 'value = "'.$start_date.'"' : ''); ?> id="start_date_cars_details" name="start_date" class="datepicker">
                         </div>
                         <div class="end-time">
                             <label>End Time:</label>
-                            <input  type="text" <?php echo (isset($end_date) ? 'value = "'.$end_date.'"' : ''); ?> id="end_date_cars_details" name="end_date" class="datepicker">
+                            <input  type="text" required <?php echo (isset($end_date) ? 'value = "'.$end_date.'"' : ''); ?> id="end_date_cars_details" name="end_date" class="datepicker">
                         </div>
                         <button type="submit" class="btn btn-default pull-right">Generate Report </button>
                     </form>
@@ -79,7 +79,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="pagination">
+                    <?php echo $links; ?>
+                    <!--<div class="pagination">
                         <a href="#"><i class="fa fa-angle-double-left"></i></a>
                         <a href="#"><i class="fa fa-angle-left"></i></a>
                         <a href="#">1</a>
@@ -90,7 +91,7 @@
                         <a href="#">6</a>
                         <a href="#"><i class="fa fa-angle-right"></i></a>
                         <a href="#"><i class="fa fa-angle-double-right"></i></a>
-                    </div>
+                    </div>-->
                 <?php } ?>
             </div>
         </div>
