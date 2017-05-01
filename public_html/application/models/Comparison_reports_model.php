@@ -6,7 +6,7 @@ class Comparison_reports_model extends CI_Model {
         parent::__construct();
     }
 
-    public function get_data($day1, $day2, $type) {
+    public function get_data($cond1, $cond2, $day1, $day2, $type) {
         try {
             $on_clause = "on drill_down.comparitor = roll_up.comparitor and drill_down.dates = roll_up.dates";
             $group_by = "1,2";
@@ -30,7 +30,10 @@ class Comparison_reports_model extends CI_Model {
             $sql = "select drill_down.dates, {$select_comp} drill_down.avg_time_greet,drill_down.avg_time_menu,drill_down.avg_time_cash
                     ,drill_down.avg_time_puw,roll_up.avg_time_total,drill_down.total_cars_total,drill_down.pullins,drill_down.pullouts 
                     from (select
-                   date(v.begin_time) as dates,
+                   case when {$cond1} then '{$day1}'
+                    when {$cond2} then '{$day2}'
+                        end
+                    as dates,
                    {$comp_group}
 
                    ifnull(round(avg(case when et.id = 6 then e.duration_dsec end)/10),0) as avg_time_greet,
@@ -48,12 +51,14 @@ class Comparison_reports_model extends CI_Model {
                    ifnull(count(distinct e.visit_id) - count(distinct case when e.eventType_id = 2 then e.visit_id end),0) as pullins
 
                    from visit_tbl v join event_tbl e on v.id = e.visit_id join eventType_tbl et on et.id = e.eventType_id
-                   where date(v.begin_time) = '{$day1}' or date(v.begin_time) = '{$day2}' 
+                   where $cond1 or $cond2 
                    group by {$group_by} ) AS drill_down
                    left outer join 
-                   (select date(begin_time) as dates, {$comp_group} ifnull(round(avg(duration_dsec)/10),0) as avg_time_total
+                   (select case when {$cond1} then '{$day1}'
+                    when {$cond2} then '{$day2}'
+                        end as dates, {$comp_group} ifnull(round(avg(duration_dsec)/10),0) as avg_time_total
                     from visit_tbl
-                   where date(begin_time) = '{$day1}' or date(begin_time) = '{$day2}'
+                   where $cond1 or $cond2
                     group by {$group_by}) as roll_up
                     {$on_clause}";
 //            die($sql);

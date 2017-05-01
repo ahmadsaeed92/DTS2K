@@ -4,11 +4,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Comparison_reports extends CI_Controller {
 
+    protected $day_start_offset;
+    protected $day_end_offset;
+
     public function __construct() {
         parent::__construct();
-        if(!$this->session->has_userdata('is_logged_in'))
-            redirect ('login');
+        if (!$this->session->has_userdata('is_logged_in'))
+            redirect('login');
         $this->load->model('Comparison_reports_model');
+        $this->day_start_offset = "04:00:00";
+        $this->day_end_offset = "03:59:59";
     }
 
     public function index($data = NULL) {
@@ -37,12 +42,18 @@ class Comparison_reports extends CI_Controller {
                 $data = array();
                 $start_date = $this->input->post('start_date');
                 $end_date = $this->input->post('end_date');
-                if (($res = $this->Comparison_reports_model->get_data(db_date($start_date, 1), db_date($end_date, 1), $this->uri->segment(1, 0))) === FALSE) {
+                $day1_start = db_date($start_date, 1) . " {$this->day_start_offset}";
+                $day1_end = date("Y-m-d H:i:s", strtotime("+1 day", strtotime($day1_start) - 1));
+                $day2_start = db_date($end_date, 1) . " {$this->day_start_offset}";
+                $day2_end = date("Y-m-d H:i:s", strtotime("+1 day", strtotime($day2_start) - 1));
+                $condition1 = "begin_time between '{$day1_start}' and '{$day1_end}'";
+                $condition2 = "begin_time between '{$day2_start}' and '{$day2_end}'";
+                if (($res = $this->Comparison_reports_model->get_data($condition1, $condition2, db_date($start_date, 1), db_date($end_date, 1), $this->uri->segment(1, 0))) === FALSE) {
                     $this->session->set_flashdata('message', 'Error While generating report! PLease try again!');
                     redirect($this->uri->segment(1, 0));
                 } else {
                     $report_type = $this->uri->segment(1, 0);
-                    $data['get_daypart_or_hour'] = $report_type == "hourly_comparison" ? NULL : 1; 
+                    $data['get_daypart_or_hour'] = $report_type == "hourly_comparison" ? NULL : 1;
                     $data['report_type'] = $report_type;
                     $data['comparator_column'] = ($report_type == "daypart_comparison") ? "Daypart" : (($report_type == "hourly_comparison") ? "Hour" : "");
                     $data['data'] = $this->get_structured_data($res);

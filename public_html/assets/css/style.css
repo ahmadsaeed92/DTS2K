@@ -208,7 +208,7 @@ input[type=checkbox], input[type=radio] {
     background-repeat: no-repeat;
     background-position: 35px 50%;
 }
-.my-nav > li > a.link-settings:hover, .my-nav > li.active > a.link-hour {
+.my-nav > li > a.link-settings:hover, .my-nav > li.active > a.link-settings {
     background-position: 35px 50%;
 }
 .link-day {
