@@ -6,6 +6,7 @@
 <script src=<?php echo asset_url()."js/bootstrap.min.js"; ?>></script>
 <script src=<?php echo asset_url()."js/jquery-ui-timepicker-addon.js"; ?>></script>
 <script src=<?php echo asset_url()."js/jquery-ui-sliderAccess.js"; ?>></script>
+<script src=<?php echo asset_url()."js/jquery.fixedheadertable.js"; ?>></script>
 <script src=<?php echo asset_url()."js/custom.js"; ?>></script>
 </body>
 </html>

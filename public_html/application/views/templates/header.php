@@ -18,4 +18,10 @@
         <link rel="stylesheet" type="text/css" href=<?php echo asset_url() . "css/jquery-ui.css"; ?>>
         <link rel="stylesheet" type="text/css" href=<?php echo asset_url() . "css/jquery-ui-timepicker-addon.css"; ?>>
         <link href=<?php echo asset_url() ."css/style.css"?> rel="stylesheet">
+        <?php
+        if(strpos($this->uri->segment(1,0), "comparison") !== FALSE): ?>
+            <link href=<?php echo asset_url() ."css/defaultTheme.css"?> rel="stylesheet">
+            <link href=<?php echo asset_url() ."css/myTheme.css"?> rel="stylesheet">
+        <?php endif;
+        ?>
     </head>
