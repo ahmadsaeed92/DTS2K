@@ -48,16 +48,12 @@ class Cars_details_model extends CI_Model {
                 from visit_tbl v WHERE v.begin_time >= ? and v.begin_time <= ? order by v.begin_time desc ";
             if ($mode != "count")
                 $sql .= " limit {$limit} offset {$offset}";
-            $query = $this->db->query($sql, array($start, $end));
-            if (!$query){
-                die("HERE");
+            if (($query = $this->db->query($sql, array($start, $end))) === FALSE) {
                 return FALSE;
-            }
-            else {
-                if ($mode != "count"){
+            } else {
+                if ($mode != "count") {
                     return $query->result_array();
-                }
-                else{
+                } else {
                     return count($query->result_array());
                 }
             }

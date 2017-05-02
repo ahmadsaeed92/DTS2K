@@ -515,7 +515,7 @@ input[type=checkbox], input[type=radio] {
 .row-setting {
 	width: 100%;
 	float: left;
-	padding: 20px 0;
+	padding: 15px 0;
 	border-bottom: dashed 1px #cfd8dc;
 }
 .row-setting:last-child {

@@ -9,6 +9,13 @@
                     <div class="start-time">
                         <label>Pick Month:</label>
                         <input  type="text" required <?php echo (isset($start_date) ? 'value = "' . $start_date . '"' : ''); ?> id="month_pickup" name="start_date" class="">
+                        <?php if (($this->session->flashdata('message'))) { ?>
+                            <!--style="background-color: transparent; border-color: transparent"-->
+                            <div class="alert alert-danger" style="margin-top: 15px;">
+                                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                <strong>Error!</strong> <?php echo $this->session->flashdata('message'); ?>
+                            </div>
+                        <?php } ?>
                     </div>
                     <!--        <div class="end-time">
                                 <label>End Time:</label>

@@ -4,13 +4,6 @@
     
     <!-- CONTENT SECTION -->
     <!-- Form -->
-                <?php if (($this->session->flashdata('message'))) { ?>
-                    <!--style="background-color: transparent; border-color: transparent"-->
-                    <div class="alert alert-danger">
-                        <a href="#" class="close" data-dismiss="alert">&times;</a>
-                        <strong>Error!</strong> <?php echo $this->session->flashdata('message'); ?>
-                    </div>
-                <?php } ?>
                 <?php if (!empty($descriptor) && !empty($data)) { ?>
                     <div class="report-generated clearfix">
                         <?php echo $descriptor; ?>

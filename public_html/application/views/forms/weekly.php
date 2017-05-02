@@ -9,11 +9,18 @@
                     <div class="start-time">
                         <label>Start:</label>
                         <input  type="text" required <?php echo (isset($start_date) ? 'value = "' . $start_date . '"' : ''); ?> id="week_start_date_picker" name="start_date" class="datepicker">
+                        <?php if (($this->session->flashdata('message'))) { ?>
+                            <!--style="background-color: transparent; border-color: transparent"-->
+                            <div class="alert alert-danger" style="margin-top: 15px;">
+                                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                <strong>Error!</strong> <?php echo $this->session->flashdata('message'); ?>
+                            </div>
+                        <?php } ?>
                     </div>
-<!--                    <div class="end-time">
-                        <label>End:</label>
-                        <input  type="text" required <?php echo (isset($end_date) ? 'value = "' . $end_date . '"' : ''); ?> id="week_end_date_picker" name="end_date" class="datepicker">
-                    </div>-->
+                    <!--                    <div class="end-time">
+                                            <label>End:</label>
+                                            <input  type="text" required <?php echo (isset($end_date) ? 'value = "' . $end_date . '"' : ''); ?> id="week_end_date_picker" name="end_date" class="datepicker">
+                                        </div>-->
                     <button type="submit" class="btn btn-default pull-right">Generate Report </button>
                 </form>
             </div>
