@@ -19,6 +19,10 @@ class Comparison_reports extends CI_Controller {
     public function index($data = NULL) {
         if (!$data)
             $data = array();
+        if (!isset($data['start_date']) && !isset($data['end_date'])) {
+            $data['start_date'] = date("m/d/Y", strtotime("-1 day"));
+            $data['end_date'] = date("m/d/Y", strtotime("-30 days", strtotime($data['start_date'])));
+        }
         $data['title'] = $this->get_title();
         $this->load->view('templates/header', $data);
         $data['menu'] = $this->load->view('templates/left_menu');

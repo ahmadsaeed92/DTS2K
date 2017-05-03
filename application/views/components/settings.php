@@ -16,25 +16,25 @@
                             <li>
                                 <div class="col1"><a class="btn btn-success"  href="#">Green</a></div>
                                 <div class="col2">
-                                    <span class="val1">> 60s</span> 
-                                    <span class="val2">- </span>
-                                    <span class="val3">80s</span>  
+                                    <span class="val1"><= 111s</span> 
+                                    <!--<span class="val2">- </span>-->
+                                    <!--<span class="val3">80s</span>-->  
                                 </div>
                             </li>
                             <li>
                                 <div class="col1"><a class="btn btn-warning"  href="#">Yellow</a></div> 
                                 <div class="col2">
-                                    <span class="val1">&nbsp;&nbsp;&nbsp; 60s</span> 
+                                    <span class="val1">> 111s</span> 
                                     <span class="val2"> - </span>
-                                    <span class="val3">80s</span>  
+                                    <span class="val3"><= 122s</span>  
                                 </div>
                             </li>
                             <li>
                                 <div class="col1"><a class="btn btn-danger"  href="#">Red</a></div> 
                                 <div class="col2">
-                                    <span class="val1">< &nbsp;80</span> 
-                                    <span class="val2"> - </span>
-                                    <span class="val3">80s</span>  
+                                    <span class="val1">> 122</span> 
+                                    <!--<span class="val2"> - </span>-->
+                                    <!--<span class="val3">80s</span>-->  
                                 </div>
                             </li>
                         </ul>
@@ -48,49 +48,49 @@
                         <li>
                             <div class="col1">Breakfast</div>
                             <div class="col2">
-                                <span class="val1">05:00</span> 
+                                <span class="val1">04:00</span> 
                                 <span class="val2">-</span>
-                                <span class="val3">11:00</span>  
+                                <span class="val3">10:30</span>  
                             </div>
                         </li>
                         <li>
                             <div class="col1">Afternoon</div>
                             <div class="col2">
-                                <span class="val1">11:00</span> 
+                                <span class="val1">10:30</span> 
                                 <span class="val2">-</span>
-                                <span class="val3">12:00</span>  
+                                <span class="val3">14:00</span>  
                             </div>
                         </li>
                         <li>
                             <div class="col1">Lunch</div>
                             <div class="col2">
-                                <span class="val1">12:00</span> 
+                                <span class="val1">14:00</span> 
                                 <span class="val2">-</span>
-                                <span class="val3">15:00</span>  
+                                <span class="val3">17:00</span>  
                             </div>
                         </li>
                         <li>
                             <div class="col1">Evening</div>
                             <div class="col2">
-                                <span class="val1">15:00</span> 
+                                <span class="val1">17:00</span> 
                                 <span class="val2">-</span>
-                                <span class="val3">18:00</span>  
+                                <span class="val3">20:00</span>  
                             </div>
                         </li>
                         <li>
                             <div class="col1">Dinner</div>
                             <div class="col2">
-                                <span class="val1">18:00</span> 
+                                <span class="val1">20:00</span> 
                                 <span class="val2">-</span>
-                                <span class="val3">21:00</span>  
+                                <span class="val3">22:00</span>  
                             </div>
                         </li>
                         <li>
                             <div class="col1">Overnight</div>
                             <div class="col2">
-                                <span class="val1">21:00</span> 
+                                <span class="val1">22:00</span> 
                                 <span class="val2">-</span>
-                                <span class="val3">03:00</span>  
+                                <span class="val3">04:00</span>  
                             </div>
                         </li>
                     </ul>
@@ -102,9 +102,9 @@
                     <ul class="list">
                         <li>
                             <div class="col2">
-                                <span class="val1">21:00</span> 
-                                <span class="val2">-</span>
-                                <span class="val3">03:00</span>  
+                                <span class="val1">N/A</span> 
+                                <!--<span class="val2">-</span>-->
+                                <!--<span class="val3">03:00</span>-->  
                             </div>
                         </li>
                     </ul>    
