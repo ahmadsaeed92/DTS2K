@@ -60,7 +60,7 @@ $(function () {
         $(this).datetimepicker({
             showOn: "button",
             maxDate: 0,
-            buttonImage: "http://dts2k.me/assets/images/calendaricon.png",
+            buttonImage: base_url + "assets/images/calendaricon.png",
             buttonImageOnly: true,
             buttonText: "Select date"
         });
@@ -74,7 +74,7 @@ $(function () {
         $(this).datepicker({
             showOn: "button",
             maxDate: 0,
-            buttonImage: "http://dts2k.me/assets/images/calendaricon.png",
+            buttonImage: base_url + "assets/images/calendaricon.png",
             buttonImageOnly: true,
             buttonText: "Select date"
         });
@@ -88,7 +88,7 @@ $(function () {
     $("#week_start_date_picker").datepicker({
         showOn: "button",
         maxDate: 0,
-        buttonImage: "http://dts2k.me/assets/images/calendaricon.png",
+        buttonImage: base_url + "assets/images/calendaricon.png",
         buttonImageOnly: true,
         buttonText: "Select date",
         onSelect: function (date) {
@@ -105,7 +105,7 @@ $(function () {
     $('#week_end_date_picker').datepicker({
         showOn: "button",
         maxDate: 0,
-        buttonImage: "http://dts2k.me/assets/images/calendaricon.png",
+        buttonImage: base_url + "assets/images/calendaricon.png",
         buttonImageOnly: true,
         buttonText: "Select date"
     });
@@ -119,7 +119,7 @@ $(function () {
         changeMonth: true,
         changeYear: true,
         showButtonPanel: true,
-        buttonImage: "http://dts2k.me/assets/images/calendaricon.png",
+        buttonImage: base_url + "assets/images/calendaricon.png",
         buttonImageOnly: true,
         buttonText: "Select date",
         showOn: "button",
@@ -142,7 +142,7 @@ $(function () {
     $('#year_pickup').datepicker({
         changeYear: true,
         showButtonPanel: true,
-        buttonImage: "http://dts2k.me/assets/images/calendaricon.png",
+        buttonImage: base_url + "assets/images/calendaricon.png",
         buttonImageOnly: true,
         buttonText: "Select date",
         showOn: "button",
@@ -165,7 +165,7 @@ $(function () {
     $("#custom_start_dt").datetimepicker({
         showOn: "button",
         maxDate: 0,
-        buttonImage: "http://dts2k.me/assets/images/calendaricon.png",
+        buttonImage: base_url + "assets/images/calendaricon.png",
         buttonImageOnly: true,
         buttonText: "Select date",
         onSelect: function (date) {
@@ -182,7 +182,7 @@ $(function () {
     $('#custom_end_dt').datetimepicker({
         showOn: "button",
         maxDate: 0,
-        buttonImage: "http://dts2k.me/assets/images/calendaricon.png",
+        buttonImage: base_url + "assets/images/calendaricon.png",
         buttonImageOnly: true,
         buttonText: "Select date"
     });
@@ -193,7 +193,7 @@ $(function () {
         $(this).datepicker({
             showOn: "button",
             maxDate: 0,
-            buttonImage: "http://dts2k.me/assets/images/calendaricon.png",
+            buttonImage: base_url + "assets/images/calendaricon.png",
             buttonImageOnly: true,
             buttonText: "Select date"
         });
@@ -205,7 +205,7 @@ $(function () {
         $(this).datetimepicker({
             showOn: "button",
             maxDate: 0,
-            buttonImage: "http://dts2k.me/assets/images/calendaricon.png",
+            buttonImage: base_url + "assets/images/calendaricon.png",
             buttonImageOnly: true,
             buttonText: "Select date"
         });
