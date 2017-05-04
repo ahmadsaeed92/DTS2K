@@ -13,7 +13,7 @@ class Login extends CI_Controller {
             if ($this->session->has_userdata('is_logged_in'))
                 redirect('cars_details');
             $data = array();
-            $data['title'] = 'DTS2K Login';
+            $data['title'] = 'DTS4K Login';
             $this->load->view('templates/header', $data);
             $this->load->view('login');
             $this->load->view('templates/footer');

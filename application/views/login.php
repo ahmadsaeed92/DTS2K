@@ -5,7 +5,7 @@
         <div class="login-container">
             <img class="login-logo"  role="img" src="<?php echo asset_url() . "images/logo.png" ?>" width="335" height="85">
             <h2>Welcome</h2>
-            <p>DTS2K is a reporting tool for store managers from Techknow.</p>
+            <p>DTS4K is a reporting tool for store managers from Techknow.</p>
             <form method="post" name="login_form" action="<?php echo base_url() . "index.php/login/check/" ?>">
                 <?php if (($this->session->flashdata('message'))) { ?>
                     <!--style="background-color: transparent; border-color: transparent"-->
