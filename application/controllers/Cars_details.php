@@ -38,7 +38,7 @@ class Cars_details extends CI_Controller {
                 // Pagination Configuration
                 $config = array();
                 $config["base_url"] = base_url() . "index.php/cars_details/generate_report/" . strtotime($start_date) . "/" . strtotime($end_date) . "/";
-                $config["total_rows"] = $this->Cars_details_model->generate_report(db_date($start_date), db_date($end_date), "count");
+                $config["total_rows"] = $this->Cars_details_model->get_count(db_date($start_date), db_date($end_date));
                 $config["per_page"] = $limit = 10;
                 $config["uri_segment"] = 5;
                 $config['use_page_numbers'] = TRUE;

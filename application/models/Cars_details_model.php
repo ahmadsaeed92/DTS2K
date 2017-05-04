@@ -61,5 +61,19 @@ class Cars_details_model extends CI_Model {
             
         }
     }
+    
+    public function get_count($start, $end) {
+        try{
+            $sql = "select count(v.id) as count_records from visit_tbl v WHERE v.begin_time >= ? and v.begin_time <= ? order by v.begin_time desc ";
+            if (($query = $this->db->query($sql, array($start, $end))) === FALSE) {
+                return FALSE;
+            } else {
+                $res = $query->result_array();
+                return (int)$res[0]['count_records'];
+            }
+        } catch (Exception $ex) {
+
+        }
+    }
 
 }
