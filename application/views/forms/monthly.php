@@ -9,6 +9,8 @@
                     <div class="start-time">
                         <label>Pick Month:</label>
                         <input  type="text" required <?php echo (isset($start_date) ? 'value = "' . $start_date . '"' : ''); ?> id="month_pickup" name="start_date" class="">
+                        <input id="red_target_hidden" name="red_target" <?php echo (isset($red_target) ? 'value = "' . $red_target . '"' : ''); ?> min="0"  type="hidden" />
+                        <input id="green_target_hidden" name="green_target" <?php echo (isset($green_target) ? 'value = "' . $green_target . '"' : ''); ?> min="0"  type="hidden" />
                         <?php if (($this->session->flashdata('message'))) { ?>
                             <!--style="background-color: transparent; border-color: transparent"-->
                             <div class="alert alert-danger" style="margin-top: 15px;">

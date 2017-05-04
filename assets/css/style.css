@@ -117,7 +117,7 @@ input[type=checkbox], input[type=radio] {
 	position: relative;
 }
 .logo2 {
-	margin: 23px auto 18px;
+        margin: 20px auto 7px;
 }
 .nav-btn {
 	position: absolute;
@@ -236,12 +236,12 @@ input[type=checkbox], input[type=radio] {
 	background-position: 35px 0;
 }
 .link-week {
-	background-image: url(../images/week.png);
+	background-image: url(../images/week_icon_new.png);
 	background-repeat: no-repeat;
-	background-position: 35px 100%;
+	background-position: 38px 50%;
 }
 .my-nav > li > a.link-week:hover, .my-nav > li.active > a.link-week {
-	background-position: 35px 0;
+	background-position: 38px 50%;
 }
 .link-year {
 	background-image: url(../images/year.png);
@@ -250,6 +250,14 @@ input[type=checkbox], input[type=radio] {
 }
 .my-nav > li > a.link-year:hover, .my-nav > li.active > a.link-year {
 	background-position: 35px 0;
+}
+.link-custom_dates {
+	background-image: url(../images/customdate_icon.png);
+	background-repeat: no-repeat;
+	background-position: 38px 50%;
+}
+.my-nav > li > a.link-custom_dates:hover, .my-nav > li.active > a.link-custom_dates {
+	background-position: 38px 50%;
 }
 .panel-default>.panel-heading {
 	color: #b0bec5;
@@ -446,13 +454,21 @@ input[type=checkbox], input[type=radio] {
 .reports-table .table>tbody>tr>td.red,
 .reports-table .table>tbody>tr>td.yellow{
         color: #fff;
-	height: 140px;    
+	height: 140px;
+        width:100px;
 }
-
+.input_h{
+    width:50px; 
+    text-align:center; 
+    color:#000;
+    height:36px;
+    line-height:34px; 
+}
 
 .reports-table .table>tbody>tr>td.green {
 	background: #27b99a;
-
+      
+       
 }
 .reports-table .table>tbody>tr>td.red {
 	background: #e64c3c;
@@ -498,6 +514,13 @@ input[type=checkbox], input[type=radio] {
 	padding: 3px 4px;
 	line-height: 18px;
 	border: dashed 1px #cfd8dc;
+}
+.s-name {
+	width: 100%;
+        text-align: center;
+        display:block;
+        font-size:18px;
+    
 }
 .store-name {
 	width: 100%;
@@ -566,6 +589,9 @@ input[type=checkbox], input[type=radio] {
 }
 .list .btn-warning {
 	background: #f3c91f;
+}
+.list li:last-child .btn  {
+    margin-bottom: 0;
 }
 .col2 {
 	font-size: 18px;

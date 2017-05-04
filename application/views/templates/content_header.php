@@ -6,7 +6,8 @@
             <a href="#" class="logo"><img src="<?php echo asset_url() . "images/techknow.png" ?>" class="img-responsive" alt="" ></a>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12 text-center">
-            <a href="#"><img src="<?php echo asset_url() . "images/dts.png" ?>" class="img-responsive logo2" ></a>
+            <a href="#"><img src="<?php echo asset_url() . "images/dts4k.png" ?>" class="img-responsive logo2" ></a>
+            <span class="s-name"><?php echo $this->config->item('store#', 'global_settings'); ?></span>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12 ">
             <a href="<?php echo base_url() . "index.php/logout/" ?>" class="logout"><img src="<?php echo asset_url() . "images/icon-logout.png" ?>" width="19" height="18" alt="" ></a>

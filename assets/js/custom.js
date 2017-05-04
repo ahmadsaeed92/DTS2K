@@ -53,6 +53,11 @@ $(document).ready(function () {
         console.log("else");
         $(".ui-datepicker-calendar, .ui-datepicker-month").show();
     }
+    $("#red_target_input, #green_target_input").keyup(function () {
+        $("#red_target_hidden").val($("#red_target_input").val().trim());
+        $("#green_target_hidden").val($("#green_target_input").val().trim());
+    });
+
 });
 // hour_pickup
 $(function () {

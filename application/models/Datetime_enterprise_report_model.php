@@ -6,12 +6,12 @@ class Datetime_enterprise_report_model extends CI_Model {
         parent::__construct();
     }
 
-    public function get_data($condition) {
+    public function get_data($condition, $green_target, $red_target) {
         try {
             $data = array();
             if (!$res_events = $this->get_event_wise_stats($condition))
                 return FALSE;
-            elseif (!$res_goals = $this->get_goal_stats($condition)) {
+            elseif (!$res_goals = $this->get_goal_stats($condition, $green_target, $red_target)) {
                 return FALSE;
             } elseif (!$res_top = $this->get_top_5($condition)) {
                 return FALSE;
@@ -62,12 +62,16 @@ class Datetime_enterprise_report_model extends CI_Model {
         }
     }
 
-    public function get_goal_stats($condition) {
+    public function get_goal_stats($condition, $green_target, $red_target) {
         try {
+            $green_target *= 10;
+            $red_target *= 10;
+            $green_avg = (($green_target * 2) + 10) / 2;
+            $red_avg = (($red_target * 2) + 10) / 2;
             $sql = "select 
-                    count(case when duration_dsec <= 900 then id end) as green_count,
-                    count(case when duration_dsec > 905 and duration_dsec <= 1225  then id end ) as yellow_count,
-                    count(case when duration_dsec > 1225   then id end) as red_count
+                    count(case when duration_dsec <= {$green_target} then id end) as green_count,
+                    count(case when duration_dsec > {$green_avg} and duration_dsec <= {$red_avg} then id end ) as yellow_count,
+                    count(case when duration_dsec > {$red_avg} then id end) as red_count
                     from visit_tbl
                     where $condition";
             $query = $this->db->query($sql);

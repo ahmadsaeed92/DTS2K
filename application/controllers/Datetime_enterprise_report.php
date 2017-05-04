@@ -91,9 +91,11 @@ class Datetime_enterprise_report extends CI_Controller {
                 redirect($this->uri->segment(1, 0));
             } else {
                 $data = array();
+                $data['green_target'] = empty($this->input->post('green_target')) ? $this->config->item('goals_green_value', 'global_settings') : $this->input->post('green_target');
+                $data['red_target'] = empty($this->input->post('red_target')) ? $this->config->item('goals_red_value', 'global_settings') : $this->input->post('red_target');
                 $start_date = $this->input->post('start_date');
                 $end_date = $this->input->post('end_date');
-                if (!$res = $this->Datetime_enterprise_report_model->get_data($this->condition)) {
+                if (!$res = $this->Datetime_enterprise_report_model->get_data($this->condition, $data['green_target'], $data['red_target'])) {
                     $this->session->set_flashdata('message', 'Error Wile generating report! PLease try again!');
                     redirect($this->uri->segment(1, 0));
                 } else {
@@ -102,7 +104,7 @@ class Datetime_enterprise_report extends CI_Controller {
                     $data['end_date'] = $this->user_end_date;
                     $data['store'] = $this->config->item('store#', 'global_settings');
                     $data['descriptor'] = $this->descriptor;
-                    $this->index($data,1);
+                    $this->index($data, 1);
                 }
             }
         } catch (Exception $ex) {
@@ -161,7 +163,7 @@ class Datetime_enterprise_report extends CI_Controller {
                         break;
                     case "weekly":
                         $start_date = db_date($start, 1) . " {$this->day_start_offset}";
-                        $end_date = date("Y-m-d H:i:s", strtotime("+7 days",  strtotime($start_date)));
+                        $end_date = date("Y-m-d H:i:s", strtotime("+7 days", strtotime($start_date)));
 //                        $end_date = db_date($end, 1) . " {$this->day_end_offset}";
                         $this->start_date = $start_date;
                         $this->end_date = $end_date;

@@ -18,7 +18,9 @@
 <div class="container-fluid inner">
     <div class="panel panel-default">
         <div class="panelhead"></div>
-        <div class="panel-heading"><?php echo $title; ?> <span class="pull-right"><?php echo $this->config->item('store#', 'global_settings'); ?></span></div>
+        <div class="panel-heading"><?php echo $title; ?> 
+            <!--<span class="pull-right"><?php echo $this->config->item('store#', 'global_settings'); ?></span>-->
+        </div>
         <div class="panel-body">
             <div class="report-filter hc" style="padding: 0 0 42px;">
                 <form method="post" action="<?php echo base_url() . "index.php/" . $this->uri->segment(1, 0) . "/generate_report/" ?>">

@@ -20,7 +20,7 @@
         <li class="<?php echo ($this->uri->segment(1, 0) == "weekly") ? "active" : ""; ?>" ><a  class="link-week" href="<?php echo base_url() . "index.php/weekly/" ?>">Week</a></li>
         <li class="<?php echo ($this->uri->segment(1, 0) == "monthly") ? "active" : ""; ?>" ><a  class="link-month" href="<?php echo base_url() . "index.php/monthly/" ?>">Month</a></li>
         <li class="<?php echo ($this->uri->segment(1, 0) == "yearly") ? "active" : ""; ?>" ><a  class="link-year" href="<?php echo base_url() . "index.php/yearly/" ?>">Year</a></li>
-        <li class="<?php echo ($this->uri->segment(1, 0) == "custom") ? "active" : ""; ?>" ><a  class="link-year" href="<?php echo base_url() . "index.php/custom/" ?>">Custom Dates</a></li>
+        <li class="<?php echo ($this->uri->segment(1, 0) == "custom") ? "active" : ""; ?>" ><a  class="link-custom_dates" href="<?php echo base_url() . "index.php/custom/" ?>">Custom Dates</a></li>
         <li class="main-link"> COMPARISON</li>
         <li class="<?php echo ($this->uri->segment(1, 0) == "daywise_comparison") ? "active" : ""; ?>" ><a  class="link-day" href="<?php echo base_url() . "index.php/daywise_comparison/"; ?>">Day</a></li>
         <li class="<?php echo ($this->uri->segment(1, 0) == "daypart_comparison") ? "active" : ""; ?>" ><a  class="link-daypart" href="<?php echo base_url() . "index.php/daypart_comparison/"; ?>">Day Part</a></li>

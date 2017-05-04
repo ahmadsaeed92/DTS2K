@@ -122,9 +122,11 @@ function secs2hour_min_secs($secs) {
 //        return $dtF->diff($dtT)->format('%h:%i:%s');
 //        return gmdate("H:i:s", $secs);
 //        $hours = sprintf("%02d", floor($secs / 3600));
-        $hours = floor($secs / 3600);
+        $hours = sprintf("%02d",floor($secs / 3600));
+        
+        $secs -= $hours * 3600;
 //        $minutes = sprintf("%02d", $secs % 3600);
-        $minutes = $secs % 60;
+        $minutes = sprintf("%02d",floor($secs / 60));
 //        $seconds = sprintf("%02d", $secs % 60);
         return "{$hours}:{$minutes}";
 //        return "{$hours}:{$minutes}:{$seconds}";
