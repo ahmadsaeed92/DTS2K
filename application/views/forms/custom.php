@@ -5,10 +5,10 @@
         <div class="panel-heading"><?php echo $title; ?></div>
         <div class="panel-body">
             <div class="report-filter">
-                <form method="post" action="<?php echo base_url() . "index.php/" . $this->uri->segment(1, 0) . "/generate_report/" ?>">
+                <form method="post" class="start_end_form" action="<?php echo base_url() . "index.php/" . $this->uri->segment(1, 0) . "/generate_report/" ?>">
                     <div class="start-time">
                         <label>Start Time:</label>
-                        <input  type="text" required <?php echo (isset($start_date) ? 'value = "' . $start_date . '"' : ''); ?> id="custom_start_dt" name="start_date" class="datepicker">
+                        <input  type="text" required <?php echo (isset($start_date) ? 'value = "' . $start_date . '"' : ''); ?> id="custom_start_dt" name="start_date" class="datepicker datepicker_start">
                         <input id="red_target_hidden" name="red_target" <?php echo (isset($red_target) ? 'value = "' . $red_target . '"' : ''); ?> min="0"  type="hidden" />
                         <input id="green_target_hidden" name="green_target" <?php echo (isset($green_target) ? 'value = "' . $green_target . '"' : ''); ?> min="0"  type="hidden" />
                         <?php if (($this->session->flashdata('message'))) { ?>
@@ -21,8 +21,8 @@
                     </div>
                     <div class="end-time">
                         <label>End Time:</label>
-                        <input  type="text" required <?php echo (isset($end_date) ? 'value = "' . $end_date . '"' : ''); ?> id="custom_end_dt" name="end_date" class="datepicker">
+                        <input  type="text" required <?php echo (isset($end_date) ? 'value = "' . $end_date . '"' : ''); ?> id="custom_end_dt" name="end_date" class="datepicker datepicker_end">
                     </div>
-                    <button type="submit" class="btn btn-default pull-right">Generate Report </button>
+                    <button type="button" class="btn btn-default pull-right submit_button">Generate Report </button>
                 </form>
             </div>

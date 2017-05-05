@@ -53,9 +53,30 @@ $(document).ready(function () {
         console.log("else");
         $(".ui-datepicker-calendar, .ui-datepicker-month").show();
     }
-    $("#red_target_input, #green_target_input").keyup(function () {
+    $("#red_target_input, #green_target_input").bind('keyup mouseup', function () {
         $("#red_target_hidden").val($("#red_target_input").val().trim());
         $("#green_target_hidden").val($("#green_target_input").val().trim());
+    });
+
+    $(".submit_button").click(function () {
+        if ($(".datepicker_start").val().trim() == "" || $(".datepicker_end").val().trim() == "") {
+            alert("Please select both start date and end date");
+            $(".submit_button").addClass("disabled");
+            return false;
+        }
+        var d1 = new Date($(".datepicker_start").val().trim());
+        var d2 = new Date($(".datepicker_end").val().trim());
+        console.log(d1);
+        console.log(d2);
+        if (d1 >= d2) {
+            alert("Start Date should be less than End Date");
+            $(".submit_button").addClass("disabled");
+            return false;
+        }
+        else {
+            $(".submit_button").removeClass("disabled");
+            $(".start_end_form").submit();
+        }
     });
 
 });
@@ -163,18 +184,19 @@ $(function () {
     });
 });
 
-// Custom Picker
+// Custom Picker $ Cars Details
 
 $(function () {
 
-    $("#custom_start_dt").datetimepicker({
+    $(".datepicker_start").datetimepicker({
         showOn: "button",
         maxDate: 0,
         buttonImage: base_url + "assets/images/calendaricon.png",
         buttonImageOnly: true,
         buttonText: "Select date",
         onSelect: function (date) {
-            var dt2 = $('#custom_end_dt');
+            $(".submit_button").removeClass("disabled");
+            var dt2 = $('.datepicker_end');
             var startDate = $(this).datetimepicker('getDate');
             var minDate = $(this).datetimepicker('getDate');
 //            dt2.datepicker('setDate', minDate + 7);
@@ -184,12 +206,15 @@ $(function () {
             dt2.datepicker('option', 'minDate', minDate);
         }
     });
-    $('#custom_end_dt').datetimepicker({
+    $('.datepicker_end').datetimepicker({
         showOn: "button",
         maxDate: 0,
         buttonImage: base_url + "assets/images/calendaricon.png",
         buttonImageOnly: true,
-        buttonText: "Select date"
+        buttonText: "Select date",
+        onSelect: function (date) {
+            $(".submit_button").removeClass("disabled");
+        }
     });
 });
 
@@ -205,17 +230,17 @@ $(function () {
     });
 });
 
-$(function () {
-    $(".datepicker").each(function () {
-        $(this).datetimepicker({
-            showOn: "button",
-            maxDate: 0,
-            buttonImage: base_url + "assets/images/calendaricon.png",
-            buttonImageOnly: true,
-            buttonText: "Select date"
-        });
-    });
-});
+//$(function () {
+//    $(".datepicker").each(function () {
+//        $(this).datetimepicker({
+//            showOn: "button",
+//            maxDate: 0,
+//            buttonImage: base_url + "assets/images/calendaricon.png",
+//            buttonImageOnly: true,
+//            buttonText: "Select date"
+//        });
+//    });
+//});
 
 function hide_month_for_yearly() {
     console.log($(".ui-datepicker-month").length);
