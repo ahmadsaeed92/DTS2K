@@ -58,7 +58,8 @@ $(document).ready(function () {
         $("#green_target_hidden").val($("#green_target_input").val().trim());
     });
 
-    $(".submit_button").click(function () {
+    $(".submit_button").click(function (e) {
+        e.preventDefault();
         if ($(".datepicker_start").val().trim() == "" || $(".datepicker_end").val().trim() == "") {
             alert("Please select both start date and end date");
             $(".submit_button").addClass("disabled");
@@ -173,9 +174,11 @@ $(function () {
         buttonText: "Select date",
         showOn: "button",
         maxDate: 0,
-        dateFormat: 'yy'
+        dateFormat: 'yy',
+        stepMonths: 0
     }).focus(function () {
         var thisCalendar = $(this);
+        $(".ui-datepicker-month").hide();
         $('.ui-datepicker-calendar').detach();
         $('.ui-datepicker-close').click(function () {
             var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
