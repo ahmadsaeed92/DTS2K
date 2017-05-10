@@ -8,7 +8,7 @@ class Comparison_reports_model extends CI_Model {
 
     public function get_data($cond1, $cond2, $day1, $day2, $type) {
         try {
-            $on_clause = "on drill_down.comparitor = roll_up.comparitor and drill_down.dates = roll_up.dates";
+            $on_clause = "on drill_down.comparitor = roll_up.comparitor and drill_down.dates = roll_up.dates order by drill_down.comparitor";
             $group_by = "1,2";
             $select_comp = "drill_down.comparitor,";
             if ($type == "hourly_comparison") {

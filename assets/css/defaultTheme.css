@@ -26,8 +26,16 @@
 .fht-table-wrapper .fht-fixed-body .fht-tbody, .fht-table-wrapper .fht-tbody {
 	/* appearance */
 	overflow: auto;
+	/*overflow-x: hidden !important;*/
+	width: 100%;
+}
+@media(min-width:1400px){
+  .fht-table-wrapper .fht-fixed-body .fht-tbody, .fht-table-wrapper .fht-tbody {
+	/* appearance */
+	overflow: auto;
 	overflow-x: hidden !important;
 	width: 100%;
+}  
 }
 .fht-table-wrapper .fht-table .fht-cell {
 	/* appearance */

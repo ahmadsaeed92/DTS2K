@@ -8,7 +8,7 @@
                 <form method="post" action="<?php echo base_url() . "index.php/" . $this->uri->segment(1, 0) . "/generate_report/" ?>">
                     <div class="start-time">
                         <label>Start:</label>
-                        <input  type="text" required <?php echo (isset($start_date) ? 'value = "' . $start_date . '"' : ''); ?> id="week_start_date_picker" name="start_date" class="datepicker">
+                        <input readonly type="text" required <?php echo (isset($start_date) ? 'value = "' . $start_date . '"' : ''); ?> id="week_start_date_picker" name="start_date" class="datepicker">
                         <input id="red_target_hidden" name="red_target" <?php echo (isset($red_target) ? 'value = "' . $red_target . '"' : ''); ?> min="0"  type="hidden" />
                         <input id="green_target_hidden" name="green_target" <?php echo (isset($green_target) ? 'value = "' . $green_target . '"' : ''); ?> min="0"  type="hidden" />
                         <?php if (($this->session->flashdata('message'))) { ?>

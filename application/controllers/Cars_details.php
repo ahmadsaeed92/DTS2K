@@ -16,8 +16,10 @@ class Cars_details extends CI_Controller {
         if (!$data)
             $data = array();
         $data['title'] = "Cars Details";
-        $data['start_date'] = date("m/d/Y H:i");
-        $data['end_date'] = date("m/d/Y H:i");
+        if (!isset($data['start_date']) && !isset($data['end_date'])) {
+            $data['start_date'] = date("m/d/Y H:i");
+            $data['end_date'] = date("m/d/Y H:i");
+        }
         $this->load->view('templates/header', $data);
         $data['menu'] = $this->load->view('templates/left_menu');
         $data['content_header'] = $this->load->view('templates/content_header');
@@ -60,6 +62,7 @@ class Cars_details extends CI_Controller {
                     $str_links = $this->pagination->create_links();
                     $data['data'] = $res;
                     $data['links'] = $str_links;
+                    $data['per_page'] = $limit;
                     $data['start_date'] = user_date($start_date);
                     $data['end_date'] = user_date($end_date);
                     $data['store'] = $this->config->item('store#', 'global_settings');

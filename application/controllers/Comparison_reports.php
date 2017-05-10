@@ -60,7 +60,7 @@ class Comparison_reports extends CI_Controller {
                     $data['get_daypart_or_hour'] = $report_type == "hourly_comparison" ? NULL : 1;
                     $data['report_type'] = $report_type;
                     $data['comparator_column'] = ($report_type == "daypart_comparison") ? "Daypart" : (($report_type == "hourly_comparison") ? "Hour" : "");
-                    $data['data'] = $this->get_structured_data($res);
+                    $data['data'] = $this->get_structured_data($res, db_date($start_date, 1), db_date($end_date, 1));
                     $data['start_date'] = user_date_only($start_date);
                     $data['end_date'] = user_date_only($end_date);
                     $data['store'] = $this->config->item('store#', 'global_settings');
@@ -72,21 +72,25 @@ class Comparison_reports extends CI_Controller {
         }
     }
 
-    public function get_structured_data($records) {
+    public function get_structured_data($records, $day1, $day2) {
         try {
             if (count($records) == 0)
                 return $records;
             $groups = array();
+            $groups[$day1] = array();
+            $groups[$day2] = array();
             foreach ($records as $row) {
-                if (!array_key_exists($row['dates'], $groups))
-                    $groups[$row['dates']] = array();
+//                if (!array_key_exists($row['dates'], $groups))
+//                    $groups[$row['dates']] = array();
                 array_push($groups[$row['dates']], $row);
             }
+//            print_r($groups);
             $grouping_keys = array_keys($groups);
             $set1 = $groups[$grouping_keys[0]];
 //            $set2 = $groups[$grouping_keys[1]];
             $set2 = (isset($grouping_keys[1])) ? $groups[$grouping_keys[1]] : array();
             $loop_over = (count($set1) >= count($set2)) ? 1 : 2;
+//            print($loop_over);
             $record_set = array();
             if ($loop_over == 1) {
                 foreach ($set1 as $index => $record) {
@@ -97,7 +101,7 @@ class Comparison_reports extends CI_Controller {
             } else {
                 foreach ($set2 as $index => $value) {
                     $empty_array = array_fill_keys(array_keys($set2[$index]), NULL);
-                    $row = isset($set1[$index]) ? array_merge_recursive(array_values($set1[$index]), array_values($set2[$index])) : array_merge_recursive($empty_array, array_values($set2[$index]));
+                    $row = isset($set1[$index]) ? array_merge_recursive(($set1[$index]), ($set2[$index])) : array_merge_recursive($empty_array, ($set2[$index]));
                     array_push($record_set, $row);
                 }
             }

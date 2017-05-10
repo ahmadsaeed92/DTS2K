@@ -24,7 +24,7 @@
                 <form method="post" class="start_end_form" action="<?php echo base_url() . "index.php/cars_details/generate_report/" ?>">
                     <div class="start-time">
                         <label>Start Time:</label>
-                        <input  type="text"  <?php echo (isset($start_date) ? 'value = "' . $start_date . '"' : ''); ?> id="start_date_cars_details" name="start_date" class="datepicker datepicker_start">
+                        <input  type="text" <?php echo (isset($start_date) ? 'value = "' . $start_date . '"' : ''); ?> id="start_date_cars_details" required name="start_date" class="datepicker datepicker_start">
                         <?php if (($this->session->flashdata('message'))) { ?>
                             <!--style="background-color: transparent; border-color: transparent"-->
                             <div class="alert alert-danger" style="margin-top: 15px;">
@@ -35,9 +35,9 @@
                     </div>
                     <div class="end-time">
                         <label>End Time:</label>
-                        <input  type="text"  <?php echo (isset($end_date) ? 'value = "' . $end_date . '"' : ''); ?> id="end_date_cars_details" name="end_date" class="datepicker datepicker_end">
+                        <input type="text" <?php echo (isset($end_date) ? 'value = "' . $end_date . '"' : ''); ?> id="end_date_cars_details" required name="end_date" class="datepicker datepicker_end">
                     </div>
-                    <button type="button" class="btn btn-default pull-right submit_button">Generate Report </button>
+                    <button type="submit" class="btn btn-default pull-right submit_button">Generate Report </button>
                 </form>
             </div>
             <!--<div id="infoMessage"><?php echo $this->session->flashdata('message'); ?></div>-->
@@ -50,9 +50,9 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Car/Visit ID</th>
+                                <th>Sr#</th>
                                 <th>Departure Time</th>
-                                <th>Car Lane</th>
+                                <th>Car In Lane</th>
                                 <th>Greet</th>
                                 <th>Menu</th>
                                 <th>Queue 1</th>
@@ -67,12 +67,15 @@
                             if (count($data) == 0) {
                                 echo '<tr><td colspan="10">No Records Found</td></tr>';
                             } else {
+                                $page = ($this->uri->segment(5)) ? $this->uri->segment(5) : 0;
+                                $sr_no = ($page == 0) ? $page * $per_page : ($page -1 ) * $per_page;
                                 foreach ($data as $row):
+                                    $sr_no++;
                                     ?>
                                     <tr>
-                                        <td><?php echo $row['id']; ?></td>
+                                        <td><?php echo $sr_no; ?></td>
                                         <td><?php echo user_date($row['begin_time']); ?></td>
-                                        <td><?php echo $row['laneStamp']; ?></td>
+                                        <td><?php echo empty($row['laneStamp']) ? 'N/A' : $row['laneStamp']; ?></td>
                                         <td><?php echo secs2minsecs((int) $row['greet_time']); ?></td>
                                         <td><?php echo secs2minsecs((int) $row['menu_time']); ?></td>
                                         <td><?php echo secs2minsecs((int) $row['queue1']); ?></td>

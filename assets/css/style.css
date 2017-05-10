@@ -580,6 +580,7 @@ input[type=checkbox], input[type=radio] {
 	font-size: 18px;
 	text-align: left;
 	border-radius: 19px;
+        cursor: inherit;
 }
 .list .btn-success {
 	background: #27b999;
@@ -615,7 +616,7 @@ input[type=checkbox], input[type=radio] {
 }
  @media(min-width:320px) and (max-width:991px) {
 .main-nav {
-	position: absolute;
+	/*position: absolute;*/
 }
 .start-time, .end-time, .start-time label, .end-time label {
 	width: 100%;

@@ -115,7 +115,6 @@ class Datetime_enterprise_report extends CI_Controller {
     public function mutator($start, $end = NULL) {
         try {
             if (empty($start)) {
-                die("here");
                 return FALSE;
             } else {
                 $store = $this->config->item('store#', 'global_settings');
