@@ -52,7 +52,7 @@ class Datetime_enterprise_report extends CI_Controller {
             $today_date = date("m/d/Y");
             $today_datetime = date("m/d/Y H:i");
             $week_start = date('m/d/Y', strtotime('-7 days'));
-            $month = date("m Y");
+            $month = date("m/Y");
             $year = date("Y");
             switch ($this->uri->segment(1, 0)) {
                 case "hourly":
@@ -172,8 +172,8 @@ class Datetime_enterprise_report extends CI_Controller {
                         $this->descriptor = "Report Generated for '{$store}' from {$user_start_date} to {$user_end_date} at {$now}";
                         break;
                     case "monthly":
-                        $month = explode(" ", $start)[0];
-                        $year = explode(" ", $start)[1];
+                        $month = explode("/", $start)[0];
+                        $year = explode("/", $start)[1];
                         $this->condition = " strftime('%m',begin_time) = '{$month}' and strftime('%Y',begin_time) = '{$year}'";
                         $this->descriptor = "Report Generated for '{$store}' for {$month} {$year} at {$now}";
                         break;

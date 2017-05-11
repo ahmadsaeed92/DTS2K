@@ -1,3 +1,6 @@
+$(window).load(function () {
+    $(".loader").fadeOut("slow");
+});
 $(document).ready(function () {
 // Comparison Table Start
     $('#myTable01').fixedHeaderTable({footer: false, cloneHeadToFoot: false, autoShow: true, autoResize: true});
@@ -57,18 +60,35 @@ $(document).ready(function () {
     $("#red_target_input, #green_target_input").bind('keyup mouseup', function () {
         $("#red_target_hidden").val($("#red_target_input").val().trim());
         $("#green_target_hidden").val($("#green_target_input").val().trim());
+        if (parseInt($("#red_target_input").val(), 10) > parseInt($("#green_target_input").val(), 10) + 1) {
+            $(".submit_button").removeClass("disabled");
+        }
     });
     $(".start_end_form").on("submit", function (e) {
         e.preventDefault();
+        var date_regex = /^((0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2})*$/;
+        var time_regex = /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
         var start_date = $(".datepicker_start").val().trim();
         var end_date = $(".datepicker_end").val().trim();
         var d1 = new Date(start_date);
         var d2 = new Date(end_date);
-//        console.log(d1);
-//        console.log(d2);
-        if (start_date == "" || end_date == "" || isNaN(Date.parse(start_date)) || isNaN(Date.parse(end_date))
-                || start_date.indexOf("/") == -1 || end_date.indexOf("/") == -1
-                ) {
+        is_start_date_format_correct = true;
+        if (start_date.indexOf(" ") !== -1) {
+            var datetime = start_date.split(" ");
+            if (!date_regex.test(datetime[0]) || !time_regex.test(datetime[1]))
+                is_start_date_format_correct = false;
+        }
+        else
+            is_start_date_format_correct = date_regex.test(start_date);
+        if (end_date.indexOf(" ") !== -1) {
+            var datetime = end_date.split(" ");
+            if (!date_regex.test(datetime[0]) || !time_regex.test(datetime[1]))
+                is_start_date_format_correct = false;
+        }
+        else
+            is_start_date_format_correct = date_regex.test(end_date);
+        console.log(is_start_date_format_correct);
+        if (start_date == "" || end_date == "" || !is_start_date_format_correct) {
             alert("Please enter valid start date and end date");
             $(".submit_button").addClass("disabled");
             return false;
@@ -78,27 +98,57 @@ $(document).ready(function () {
             $(".submit_button").addClass("disabled");
             return false;
         }
-        else {
-            $(".submit_button").removeClass("disabled");
-            this.submit();
-        }
-    });
-    $(".single_form").on("submit", function (e) {
-        e.preventDefault();
-        var start_date = $(".datepicker_start").val().trim();
-        if (start_date == "" || start_date.indexOf("/") == -1 || isNaN(Date.parse(start_date))) {
-            alert("Please enter valid date");
+        else if ($("#green_target_input").length && $("#red_target_input").length && parseInt($("#red_target_input").val(), 10) <= parseInt($("#green_target_input").val(), 10)) {
+            alert("Seconds For Red Should be greater than Green");
+            $("#red_target_input").focus();
             $(".submit_button").addClass("disabled");
             return false;
         }
         else {
             $(".submit_button").removeClass("disabled");
+            $(".loader").show();
+            $('.loader').css('visibility', 'visible');
+            this.submit();
+        }
+    });
+    $(".single_form").on("submit", function (e) {
+        e.preventDefault();
+        var date_regex = /^((0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2})*$/;
+        var time_regex = /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
+        var start_date = $(".datepicker_start").val().trim();
+        is_start_date_format_correct = true;
+        if (start_date.indexOf(" ") !== -1) {
+            var datetime = start_date.split(" ");
+            if (!date_regex.test(datetime[0]) || !time_regex.test(datetime[1]))
+                is_start_date_format_correct = false;
+        }
+        else
+            is_start_date_format_correct = date_regex.test(start_date);
+        if (start_date == "" || !is_start_date_format_correct) {
+            alert("Please enter valid date");
+            $(".submit_button").addClass("disabled");
+            return false;
+        }
+        else if ($("#green_target_input").length && $("#red_target_input").length && parseInt($("#red_target_input").val(), 10) <= parseInt($("#green_target_input").val(), 10)) {
+            console.log("HERE");
+            alert("Seconds For Red Should be greater than Green");
+            $("#red_target_input").focus();
+            $(".submit_button").addClass("disabled");
+            return false;
+        }
+        else {
+            $(".submit_button").removeClass("disabled");
+            $(".loader").show();
+            $('.loader').css('visibility', 'visible');
             this.submit();
         }
     });
     $(".datepicker").keyup(function () {
         $(".submit_button").removeClass("disabled");
     });
+//    $("form").submit(function () {
+//        $('.loader').css('visibility', 'visible');
+//    });
 });
 // hour_pickup
 $(function () {
@@ -177,7 +227,7 @@ $(function () {
         buttonText: "Select date",
         showOn: "button",
         maxDate: 0,
-        dateFormat: 'M yy',
+        dateFormat: 'mm/yy',
         onSelect: function (date) {
             $(".submit_button").removeClass("disabled");
         }

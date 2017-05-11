@@ -16,3 +16,4 @@
                 <?php endif; ?>
         </div>
     </header>
+    <div class="loader"></div>
