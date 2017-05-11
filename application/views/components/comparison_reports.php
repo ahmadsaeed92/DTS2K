@@ -23,7 +23,7 @@
         </div>
         <div class="panel-body">
             <div class="report-filter hc" style="padding: 0 0 42px;">
-                <form method="post" action="<?php echo base_url() . "index.php/" . $this->uri->segment(1, 0) . "/generate_report/" ?>">
+                <form method="post" class="comparison_form" action="<?php echo base_url() . "index.php/" . $this->uri->segment(1, 0) . "/generate_report/" ?>">
                     <div class="start-time">
                         <label>Day1:</label>
                         <input readonly type="text" required <?php echo (isset($start_date) ? 'value = "' . $start_date . '"' : ''); ?> id="start_date_cars_details" name="start_date" class="date_only_picker">

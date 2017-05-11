@@ -146,9 +146,10 @@ $(document).ready(function () {
     $(".datepicker").keyup(function () {
         $(".submit_button").removeClass("disabled");
     });
-//    $("form").submit(function () {
-//        $('.loader').css('visibility', 'visible');
-//    });
+    $(".comparison_form").submit(function () {
+        $(".loader").show();
+        $('.loader').css('visibility', 'visible');
+    });
 });
 // hour_pickup
 $(function () {

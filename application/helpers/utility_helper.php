@@ -41,11 +41,13 @@ function db_date($date_string, $mode = NULL) {
     return date($format, strtotime($date_string));
 }
 
-function user_date($date_string) {
+function user_date($date_string, $format = NULL) {
     if (is_null($date_string))
         return NULL;
     $CI_Instance = & get_instance();
-    if ($CI_Instance->config->item('date_time_format', 'global_settings'))
+    if (!is_null($format))
+        $format = $format;
+    elseif ($CI_Instance->config->item('date_time_format', 'global_settings'))
         $format = $CI_Instance->config->item('date_time_format', 'global_settings');
     else
         $format = 'm/d/Y H:i:s';
@@ -122,11 +124,11 @@ function secs2hour_min_secs($secs) {
 //        return $dtF->diff($dtT)->format('%h:%i:%s');
 //        return gmdate("H:i:s", $secs);
 //        $hours = sprintf("%02d", floor($secs / 3600));
-        $hours = sprintf("%02d",floor($secs / 3600));
-        
+        $hours = sprintf("%02d", floor($secs / 3600));
+
         $secs -= $hours * 3600;
 //        $minutes = sprintf("%02d", $secs % 3600);
-        $minutes = sprintf("%02d",floor($secs / 60));
+        $minutes = sprintf("%02d", floor($secs / 60));
 //        $seconds = sprintf("%02d", $secs % 60);
         return "{$hours}:{$minutes}";
 //        return "{$hours}:{$minutes}:{$seconds}";

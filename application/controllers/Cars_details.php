@@ -63,8 +63,8 @@ class Cars_details extends CI_Controller {
                     $data['data'] = $res;
                     $data['links'] = $str_links;
                     $data['per_page'] = $limit;
-                    $data['start_date'] = user_date($start_date);
-                    $data['end_date'] = user_date($end_date);
+                    $data['start_date'] = user_date($start_date, "m/d/Y H:i");
+                    $data['end_date'] = user_date($end_date, "m/d/Y H:i");
                     $data['store'] = $this->config->item('store#', 'global_settings');
                     $now = date("m/d/Y H:i:s");
                     $data['descriptor'] = "Report Generated for '{$data['store']}' from {$data['start_date']} to {$data['end_date']} at {$now}";
