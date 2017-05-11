@@ -7,7 +7,7 @@
 ?>
 <!--<div class="main-container">-->
 <?php //endif;  ?>
-<div class="main-nav toggler">
+<div class="main-nav toggler mCustomScrollbar">
     <div class="navtop">
         <a class="close-menu"  href="#"><img src="<?php echo asset_url() . "images/bars.png" ?>" width="25" height="21"></a>
     </div>

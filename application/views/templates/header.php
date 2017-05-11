@@ -17,6 +17,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href=<?php echo asset_url() . "css/jquery-ui.css"; ?>>
         <link rel="stylesheet" type="text/css" href=<?php echo asset_url() . "css/jquery-ui-timepicker-addon.css"; ?>>
+        <link href=<?php echo asset_url() . "css/jquery.mCustomScrollbar.css" ?> rel="stylesheet">
         <link href=<?php echo asset_url() . "css/style.css" ?> rel="stylesheet">
         <?php if (strpos($this->uri->segment(1, 0), "comparison") !== FALSE): ?>
             <link href=<?php echo asset_url() . "css/defaultTheme.css" ?> rel="stylesheet">

@@ -623,6 +623,9 @@ input[type=checkbox], input[type=radio] {
     z-index: 9999;
     background: url('../images/ajax-loader.gif') 50% 50% no-repeat rgba(249,249,249,0.7);
 }
+.mCSB_inside > .mCSB_container {
+    margin-right: 0px; 
+}
 @media(min-width:320px) and (max-width:991px) {
     .main-nav {
         /*position: absolute;*/
