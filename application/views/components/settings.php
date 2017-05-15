@@ -14,28 +14,34 @@
                     <div class="form-group">
                         <ul class="list">
                             <li>
-                                <div class="col1"><span class="btn btn-success">Green</span></div>
-                                <div class="col2">
-                                    <!--<span class="val1"><= 111s</span>--> 
-                                    <span class="">Less than equal to <?php echo $this->config->item('goals_green_value', 'global_settings'); ?> seconds</span> 
-                                    <!--<span class="val2">- </span>-->
-                                    <!--<span class="val3">80s</span>-->  
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-3"><span class="btn btn-success">Green</span></div>
+                                    <div class="col2 col-sm-6 col-md-9">
+                                        <!--<span class="val1"><= 111s</span>--> 
+                                        <span class="">Less than equal to <?php echo $this->config->item('goals_green_value', 'global_settings'); ?> seconds</span> 
+                                        <!--<span class="val2">- </span>-->
+                                        <!--<span class="val3">80s</span>-->  
+                                    </div>
                                 </div>
                             </li>
                             <li>
-                                <div class="col1"><span class="btn btn-warning" >Yellow</span></div> 
-                                <div class="col2">
-                                    <span class="">Greater than <?php echo $this->config->item('goals_green_value', 'global_settings'); ?> seconds</span> 
-                                    <span class=""> and </span>
-                                    <span class="">Less than equal to <?php echo $this->config->item('goals_red_value', 'global_settings'); ?> seconds</span>  
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-3"><span class="btn btn-warning" >Yellow</span></div> 
+                                    <div class="col2 col-sm-6 col-md-9">
+                                        <span class="">Greater than <?php echo $this->config->item('goals_green_value', 'global_settings'); ?> seconds</span> 
+                                        <span class=""> and </span>
+                                        <span class="">Less than equal to <?php echo $this->config->item('goals_red_value', 'global_settings'); ?> seconds</span>  
+                                    </div>
                                 </div>
                             </li>
                             <li>
-                                <div class="col1"><span class="btn btn-danger" >Red</span></div> 
-                                <div class="col2">
-                                    <span class="">Greater than <?php echo $this->config->item('goals_red_value', 'global_settings'); ?> seconds</span> 
-                                    <!--<span class="val2"> - </span>-->
-                                    <!--<span class="val3">80s</span>-->  
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-3"><span class="btn btn-danger" >Red</span></div> 
+                                    <div class="col2 col-sm-6 col-md-9">
+                                        <span class="">Greater than <?php echo $this->config->item('goals_red_value', 'global_settings'); ?> seconds</span> 
+                                        <!--<span class="val2"> - </span>-->
+                                        <!--<span class="val3">80s</span>-->  
+                                    </div>
                                 </div>
                             </li>
                         </ul>

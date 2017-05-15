@@ -24,7 +24,7 @@
                 <form method="post" class="start_end_form" action="<?php echo base_url() . "index.php/cars_details/generate_report/" ?>">
                     <div class="start-time">
                         <label>Start Time:</label>
-                        <input  type="text" <?php echo (isset($start_date) ? 'value = "' . $start_date . '"' : ''); ?> id="start_date_cars_details" required name="start_date" class="datepicker datepicker_start">
+                        <input title="Start Date to get Cars Details"  type="text" <?php echo (isset($start_date) ? 'value = "' . $start_date . '"' : ''); ?> id="start_date_cars_details" required name="start_date" class="datepicker datepicker_start">
                         <?php if (($this->session->flashdata('message'))) { ?>
                             <!--style="background-color: transparent; border-color: transparent"-->
                             <div class="alert alert-danger" style="margin-top: 15px;">
