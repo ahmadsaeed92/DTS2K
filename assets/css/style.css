@@ -581,7 +581,7 @@ input[type=checkbox], input[type=radio] {
     font-size: 18px;
     text-align: left;
     border-radius: 19px;
-    cursor: inherit;
+    cursor: default;
 }
 .list .btn-success {
     background: #27b999;
