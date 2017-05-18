@@ -26,7 +26,7 @@
                 <form method="post" class="comparison_form" action="<?php echo base_url() . "index.php/" . $this->uri->segment(1, 0) . "/generate_report/" ?>">
                     <div class="start-time">
                         <label>Day1:</label>
-                        <input readonly type="text" required <?php echo (isset($start_date) ? 'value = "' . $start_date . '"' : ''); ?> id="start_date_cars_details" name="start_date" class="date_only_picker">
+                        <input readonly title="<?php echo $this->config->item( 'comparison_day1','tooltip_texts'); ?>" type="text" required <?php echo (isset($start_date) ? 'value = "' . $start_date . '"' : ''); ?> id="day_1_comparison_report" name="start_date" class="date_only_picker">
                         <?php if (($this->session->flashdata('message'))) { ?>
                             <!--style="background-color: transparent; border-color: transparent"-->
                             <div class="alert alert-danger" style="margin-top: 15px;">
@@ -38,9 +38,9 @@
                     <div class="end-time">
                         <span class="compare-with" >Compare With</span>
                         <label>Day2:</label>
-                        <input readonly type="text" required <?php echo (isset($end_date) ? 'value = "' . $end_date . '"' : ''); ?> id="end_date_cars_details" name="end_date" class="date_only_picker">
+                        <input title="<?php echo $this->config->item( 'comparison_day2','tooltip_texts'); ?>" readonly type="text" required <?php echo (isset($end_date) ? 'value = "' . $end_date . '"' : ''); ?> id="day_2_comparison_report" name="end_date" class="date_only_picker">
                     </div>
-                    <button type="submit" class="btn btn-default pull-right">Generate Report </button>
+                    <button title="<?php echo $this->config->item( 'generate_report_button','tooltip_texts'); ?>" type="submit" class="btn btn-default pull-right">Generate Report </button>
                 </form>
             </div>
             <!--	<div class="report-generated clearfix">

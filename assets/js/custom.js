@@ -1,7 +1,35 @@
 $(window).load(function () {
     $(".loader").fadeOut("slow");
+    $(".sm").mCustomScrollbar({
+        snapAmount: 40,
+        scrollButtons: {enable: true},
+        keyboard: {scrollAmount: 40},
+        mouseWheel: {deltaFactor: 40},
+        scrollInertia: 300,
+        scrollbarPosition: "outside",
+        theme: "dark"
+    });
 });
 $(document).ready(function () {
+    var height = $(window).height();
+
+    $(".sm").css('height', height - 220);
+
+    var elem = $(".panel-group a[data-toggle='collapse']");
+    elem.click(function () {
+        if ($(this).parent().parent().hasClass("active-title")) {
+            $(this).parent().parent().removeClass("active-title");
+            $(this).removeClass("arrow-up");
+
+        }
+        else {
+            $(".arrow-down ").removeClass("arrow-up");
+            $(".help-title").removeClass("active-title");
+            $(this).parent().parent().addClass("active-title");
+            $(this).addClass("arrow-up");
+        }
+    });
+
 // Comparison Table Start
     $('#myTable01').fixedHeaderTable({footer: false, cloneHeadToFoot: false, autoShow: true, autoResize: true});
     console.log("In True");
@@ -332,6 +360,11 @@ $(function () {
 //    });
 //});
 
+function hide_month_for_yearly() {
+    console.log($(".ui-datepicker-month").length);
+    $(".ui-datepicker-month").hide();
+}
+
 // Tootl Tip
 
 $(function () {
@@ -350,10 +383,3 @@ $(function () {
         }
     });
 });
-
-function hide_month_for_yearly() {
-    console.log($(".ui-datepicker-month").length);
-    $(".ui-datepicker-month").hide();
-}
-
-

@@ -8,7 +8,7 @@
                 <form method="post" class="single_form" action="<?php echo base_url() . "index.php/" . $this->uri->segment(1, 0) . "/generate_report/" ?>">
                     <div class="start-time">
                         <label>Pick Date:</label>
-                        <input type="text" required <?php echo (isset($start_date) ? 'value = "' . $start_date . '"' : ''); ?> id="daypart_date_picker" name="start_date" class="datepicker datepicker_start">
+                        <input type="text" title="<?php echo $this->config->item( 'select_daypart_date','tooltip_texts'); ?>" required <?php echo (isset($start_date) ? 'value = "' . $start_date . '"' : ''); ?> id="daypart_date_picker" name="start_date" class="datepicker datepicker_start">
                         <input id="red_target_hidden" name="red_target" <?php echo (isset($red_target) ? 'value = "' . $red_target . '"' : ''); ?> min="0"  type="hidden" />
                         <input id="green_target_hidden" name="green_target" <?php echo (isset($green_target) ? 'value = "' . $green_target . '"' : ''); ?> min="0"  type="hidden" />
                         <?php if (($this->session->flashdata('message'))) { ?>
@@ -21,7 +21,7 @@
                     </div>
                     <div class="end-time">
                         <label>Select Daypart:</label>
-                        <select style="display: inline; width: 40%; height: 37px"  type="text" required <?php echo (isset($end_date) ? 'value = "' . $end_date . '"' : ''); ?> id="daypart_select" name="end_date" class="form-control">
+                        <select title="<?php echo $this->config->item( 'select_daypart_dropdown','tooltip_texts'); ?>" style="display: inline; width: 40%; height: 37px"  type="text" required <?php echo (isset($end_date) ? 'value = "' . $end_date . '"' : ''); ?> id="daypart_select" name="end_date" class="form-control">
                             <option value="DP1">DP1 – 4:00am</option>
                             <option value="DP2">DP2 – 10:30am</option>
                             <option value="DP3">DP3 – 2:00pm</option>
@@ -30,6 +30,6 @@
                             <option value="DP6">DP6 – 10:00pm</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-default pull-right submit_button">Generate Report </button>
+                    <button type="submit" title="<?php echo $this->config->item( 'generate_report_button','tooltip_texts'); ?>" class="btn btn-default pull-right submit_button">Generate Report </button>
                 </form>
             </div>

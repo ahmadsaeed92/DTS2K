@@ -9,7 +9,7 @@
 <?php //endif;  ?>
 <div class="main-nav toggler mCustomScrollbar">
     <div class="navtop">
-        <a class="close-menu"  href="#"><img src="<?php echo asset_url() . "images/bars.png" ?>" width="25" height="21"></a>
+        <a class="close-menu" title="<?php echo $this->config->item( 'left_menu_toggle','tooltip_texts'); ?>" href="#"><img src="<?php echo asset_url() . "images/bars.png" ?>" width="25" height="21"></a>
     </div>
     <ul class="my-nav">
         <li class="main-link">REPORTS</li>
@@ -27,5 +27,6 @@
         <li class="<?php echo ($this->uri->segment(1, 0) == "hourly_comparison") ? "active" : ""; ?>" ><a  class="link-hour" href="<?php echo base_url() . "index.php/hourly_comparison/"; ?>">Hour</a></li>
         <li class="main-link">SETTINGS</li>
         <li class="<?php echo ($this->uri->segment(1, 0) == "settings") ? "active" : ""; ?>" ><a  class="link-settings" href="<?php echo base_url() . "index.php/settings/"; ?>">View Settings</a></li>
+        <li class="<?php echo ($this->uri->segment(1, 0) == "settings") ? "active" : ""; ?>" ><a  class="link-help" href="<?php echo base_url() . "index.php/help/"; ?>">Help</a></li>
     </ul>
 </div>

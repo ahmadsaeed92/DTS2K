@@ -25,8 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 ini_set('max_execution_time', 300);
 ini_set('memory_limit', '1024M');
-ini_set('date.timezone', 'UTC');
-$config['base_url'] = '';
+$config['base_url'] = 'http://dts2k.me/';
 
 /*
 |--------------------------------------------------------------------------
@@ -382,7 +381,7 @@ $config['encryption_key'] = '';
 */
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
-$config['sess_expiration'] = 7200;
+$config['sess_expiration'] = 60000;
 $config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;

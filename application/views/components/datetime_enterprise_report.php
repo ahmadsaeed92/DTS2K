@@ -333,7 +333,7 @@
                     </tr>
                     <tr>
                         <td>Tgt</td>
-                        <td><input class="input_h" id="green_target_input" name="green_target" <?php echo (isset($green_target) ? 'value = "' . $green_target . '"' : ''); ?> min="0"  type="number" /></td>
+                        <td><input class="input_h" title="<?php echo $this->config->item( 'green_target_input','tooltip_texts'); ?>" id="green_target_input" name="green_target" <?php echo (isset($green_target) ? 'value = "' . $green_target . '"' : ''); ?> min="0"  type="number" /></td>
                     </tr>
                     <tr>
                         <td  class="yellow" rowspan="3">YELLOW</td>
@@ -359,7 +359,7 @@
                     </tr>
                     <tr>
                         <td>Tgt</td>
-                        <td><input class="input_h" id="red_target_input" name="red_target" <?php echo (isset($red_target) ? 'value = "' . $red_target . '"' : ''); ?> min="0"  type="number" /></td>
+                        <td><input title="<?php echo $this->config->item( 'red_target_input','tooltip_texts'); ?>" class="input_h"  id="red_target_input" name="red_target" <?php echo (isset($red_target) ? 'value = "' . $red_target . '"' : ''); ?> min="0"  type="number" /></td>
                     </tr>
                 </tbody>
             </table>
