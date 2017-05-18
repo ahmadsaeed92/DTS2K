@@ -27,6 +27,6 @@
         <li class="<?php echo ($this->uri->segment(1, 0) == "hourly_comparison") ? "active" : ""; ?>" ><a  class="link-hour" href="<?php echo base_url() . "index.php/hourly_comparison/"; ?>">Hour</a></li>
         <li class="main-link">SETTINGS</li>
         <li class="<?php echo ($this->uri->segment(1, 0) == "settings") ? "active" : ""; ?>" ><a  class="link-settings" href="<?php echo base_url() . "index.php/settings/"; ?>">View Settings</a></li>
-        <li class="<?php echo ($this->uri->segment(1, 0) == "settings") ? "active" : ""; ?>" ><a  class="link-help" href="<?php echo base_url() . "index.php/help/"; ?>">Help</a></li>
+        <li class="<?php echo ($this->uri->segment(1, 0) == "help") ? "active" : ""; ?>" ><a  class="link-help" href="<?php echo base_url() . "index.php/help/"; ?>">Help</a></li>
     </ul>
 </div>
