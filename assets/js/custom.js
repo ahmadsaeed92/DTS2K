@@ -21,7 +21,7 @@ $(document).ready(function () {
             var offset = $('.panel.help > .panel-collapse.in').offset();
             if (offset) {
                 $('html,body').animate({
-                    scrollTop: $('.active-title').offset().top - 115
+                    scrollTop: $('.active-title').offset().top - 110
                 }, 500);
             }
         });
