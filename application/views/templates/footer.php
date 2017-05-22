@@ -11,5 +11,6 @@
     base_url = "<?php echo base_url(); ?>";
 </script>
 <script src=<?php echo asset_url() . "js/custom.js"; ?>></script>
+<!--<span>Copyright &copy; Version 1.0.0</span>-->
 </body>
 </html>

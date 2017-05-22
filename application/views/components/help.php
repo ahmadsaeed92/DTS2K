@@ -153,6 +153,16 @@
                             </div>
                         </div>
                     </div>
+                    <div class="panel panel-success help">
+                        <div class="panel-heading help-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#settings"> <h4 class="panel-title">Settings<span class="arrow-down"></span></h4></a>
+                        </div>
+                        <div id="settings" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <?php echo nl2br($this->config->item('settings', 'help_texts')); ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>    
             </div>
         </div>

@@ -21,7 +21,7 @@
                 <div class="form-group">
                     <input name="" class="btn btn-default" value="SIGN IN"  type="submit">
                 </div>
-                <p class="copyright text-center">All Rights Reserved <br> Copyrights &copy; 2017</p>
+                <p class="copyright text-center">All Rights Reserved <br> Copyrights &copy; 2017 Techknow <br> Version 1.0.0</p>
             </form>
         </div>
     </body>

@@ -78,7 +78,7 @@ $(document).ready(function () {
         $(this).hide();
         $(".nav-btn").show();
         $(".main-nav").toggle("slide");
-        $(".main-container").animate({"padding-left": '0'});
+        $(".main-container, .header").animate({"padding-left": '0'});
 
     });
     $(".nav-btn").click(function () {
@@ -87,7 +87,7 @@ $(document).ready(function () {
         //$(".content-container").removeAttr("style");	
         //$(".nav-back").show();
         $(".main-nav").toggle("slide");
-        $(".main-container").animate({"padding-left": '276px'});
+        $(".main-container , .header").animate({"padding-left": '276px'});
     });
 
     var url = $(location).attr('href');

@@ -121,8 +121,8 @@ Cash: 	Average time spent on cash window.
 PUW: 	Average time spent on service window.
 Total: 	Average Total time spent in drive-thru.
 Cars: 	Total no of Cars.
-Pull-ins:	
-Pull-outs:";
+Pull-ins: Cars that didn't appear at Order Window
+Pull-outs: Cars which are drive-offs";
 
 $config['help_texts']['hourly_comparison_report'] = "Comparison Report enables user to compare the average time spent at various points on hourly basis of any two days selected by himself.
 
@@ -137,8 +137,8 @@ Cash: 	Average time spent on cash window.
 PUW: 	Average time spent on service window.
 Total: 	Average Total time spent in drive-thru.
 Cars: 	Total no of Cars.
-Pull-ins:	
-Pull-outs:";
+Pull-ins: Cars that didn't appear at Order Window
+Pull-outs: Cars which are drive-offs";
 
 $config['help_texts']['daypart_comparison_report'] = "Comparison Report enables user to compare the average time spent at various points on daypart basis of any two days selected by himself.
 
@@ -153,5 +153,12 @@ Cash: 	Average time spent on cash window.
 PUW: 	Average time spent on service window.
 Total: 	Average Total time spent in drive-thru.
 Cars: 	Total no of Cars.
-Pull-ins:	
-Pull-outs:";
+Pull-ins: Cars that didn't appear at Order Window
+Pull-outs: Cars which are drive-offs";
+
+$config['help_texts']['settings'] = "On settings page user can view the timer settings for the following properties
+        Timer Version
+        Target Goals
+        Dayparts
+        Store Hours";
+
