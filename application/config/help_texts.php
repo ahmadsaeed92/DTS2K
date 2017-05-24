@@ -156,9 +156,9 @@ Cars: 	Total no of Cars.
 Pull-ins: Cars that didn't appear at Order Window
 Pull-outs: Cars which are drive-offs";
 
-$config['help_texts']['settings'] = "On settings page user can view the timer settings for the following properties
-        Timer Version
-        Target Goals
-        Dayparts
-        Store Hours";
+$config['help_texts']['settings'] = "On settings page, user can view the timer settings which are listed below:
+1. Timer Version:  Software version of tkets2
+2. Target Goals:   Goals defined for the drive thru which can be further categorized into Green/Yellow/Red
+3. Dayparts:   List of Dayparts declared for the timer module
+4. Hours of Operation:    Operational Hours of the Store";
 
