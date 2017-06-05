@@ -23,9 +23,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-ini_set('max_execution_time', 300);
+ini_set('max_execution_time', 900);
+ini_set('date.timezone','UTC');
 ini_set('memory_limit', '1024M');
-$config['base_url'] = 'http://dts2k.me/';
+$config['base_url'] = '';
 
 /*
 |--------------------------------------------------------------------------
